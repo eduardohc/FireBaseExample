@@ -60,12 +60,7 @@ public class UserSignIn extends AppCompatActivity {
     private void signIn(String email, String password) {
         Toast.makeText(getApplicationContext(), "Authenticating user",
                 Toast.LENGTH_SHORT).show();
-        //Log.d("Sign in - ", "signIn:" + email);
-        /*if (!validateForm()) {
-            return;
-        }*/
-        //showProgressDialog();
-        // [START sign_in_with_email]
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -76,22 +71,12 @@ public class UserSignIn extends AppCompatActivity {
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
-                            //Log.w("Email signin", "signInWithEmail", task.getException());
-                            /*Toast.makeText(getApplicationContext(), "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();*/
                             intentNumber = 0;
                         }else{
-                            //Intent intent = new Intent(UserSignIn.this, MainActivity.class);
-                            //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             intentNumber = 1;
                         }
-
-                        // [START_EXCLUDE]
-                        //hideProgressDialog();
-                        // [END_EXCLUDE]
                     }
                 });
-        // [END sign_in_with_email]
         CallClass(intentNumber);
     }
 
