@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <TextView
+        android:text="Welcome! Your firebase test was successfull"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:gravity="center_horizontal"
+        android:id="@+id/textView" />
+
+    <Button
+        android:text="Add user information"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:id="@+id/btn_addInformation" />
+
+    <Button
+        android:text="Get user information"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_getInformation" />
+
+    <Button
+        android:text="Log out"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="95dp"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="end"
+        android:onClick="onClick"
+        android:id="@+id/btn_logout" />
+
+</LinearLayout>
