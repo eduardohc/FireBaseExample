@@ -26,6 +26,10 @@
         <activity android:name=".UserSignIn"/>
 
         <activity android:name=".UserSignUp"/>
+
+        <activity android:name=".AddUserInformation"/>
+
+        <activity android:name=".GetUserInformation"/>
     </application>
 
 </manifest>

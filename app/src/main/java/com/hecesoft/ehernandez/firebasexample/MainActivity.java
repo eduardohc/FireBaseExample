@@ -26,12 +26,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.btn_logout){
-            mAuth.signOut();
-            Intent intent = new Intent(MainActivity.this, UserRegistration.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-            finish();
+
+        switch (v.getId()){
+            case R.id.btn_logout:
+                mAuth.signOut();
+                Intent intent = new Intent(MainActivity.this, UserRegistration.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+                break;
+            case R.id.btn_addInformation:
+                startActivity(new Intent(MainActivity.this, AddUserInformation.class));
+                break;
+            case R.id.btn_getInformation:
+                startActivity(new Intent(MainActivity.this, GetUserInformation.class));
+                break;
         }
     }
 }

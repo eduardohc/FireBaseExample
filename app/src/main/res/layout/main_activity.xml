@@ -18,12 +18,14 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:onClick="onClick"
         android:id="@+id/btn_addInformation" />
 
     <Button
         android:text="Get user information"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:onClick="onClick"
         android:id="@+id/btn_getInformation" />
 
     <Button

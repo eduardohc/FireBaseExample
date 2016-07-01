@@ -24,7 +24,7 @@ public class UserAutentication extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mAuth = FirebaseAuth.getInstance(); //Initialize auth
+        mAuth = FirebaseAuth.getInstance();
 
         // Start auth state listener
         mAuthListener = new FirebaseAuth.AuthStateListener() {

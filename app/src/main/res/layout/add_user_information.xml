@@ -4,4 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:text="Write something you want to say to Google"
+        android:textSize="20dp"
+        android:gravity="center"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:inputType="textMultiLine"
+        android:hint="Type here a message"
+        android:ems="10"
+        android:id="@+id/et_message" />
+
+    <Button
+        android:text="Save message"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="onClick"
+        android:id="@+id/btn_save_message" />
 </LinearLayout>

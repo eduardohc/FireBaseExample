@@ -14,7 +14,7 @@ public class Overview extends AppCompatActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.autentication);
+        setContentView(R.layout.overview);
 
         Thread timer = new Thread(){
             @Override
