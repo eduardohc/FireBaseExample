@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,11 +45,27 @@ public class AddUserInformation extends AppCompatActivity implements View.OnClic
 
     private void submitPost(){
         final String message = et_message.getText().toString();
-        final String userId = getUid();
 
-        mDataBase.child("users").child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+        mDataBase.setValue(message);
+        mDataBase.child("message").push();
+        /*mDataBase.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
             }
 
@@ -56,7 +73,7 @@ public class AddUserInformation extends AppCompatActivity implements View.OnClic
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
+        });*/
 
         //Log.d("Message", message);
         Toast.makeText(getApplicationContext(), "Your message have been saved successfully",

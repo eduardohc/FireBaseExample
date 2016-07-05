@@ -15,6 +15,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by ehernandez on 20/06/2016.
@@ -28,6 +31,7 @@ public class UserSignUp extends AppCompatActivity {
     private EditText mSignUpPassword;
     private Button btn_signup;
 
+    private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
 
     @Override
@@ -35,6 +39,7 @@ public class UserSignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_signup);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance(); //Initialize auth
 
         mSignUpEmail = (EditText) findViewById(R.id.et_email_signup);
@@ -55,12 +60,6 @@ public class UserSignUp extends AppCompatActivity {
     }
 
     private void createAccount(String email, String password) {
-        //Log.d("", "createAccount:" + email);
-        /*if (!validateForm()) {
-            return;
-        }*/
-
-        //showProgressDialog();
 
         // [START create_user_with_email]
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -76,22 +75,34 @@ public class UserSignUp extends AppCompatActivity {
                         if (!task.isSuccessful()) {
                             intentNumber = 0;
                         }else{
+                            onAuthSuccess(task.getResult().getUser());
                             intentNumber = 1;
-                            /*Toast.makeText(getApplicationContext(), "User sign up",
-                                    Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(UserSignUp.this, MainActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                            startActivity(intent);
-                            finish();*/
                         }
-
-                        // [START_EXCLUDE]
-                        //hideProgressDialog();
-                        // [END_EXCLUDE]
                     }
                 });
         CallClass(intentNumber);
         // [END create_user_with_email]
+    }
+
+    private void onAuthSuccess(FirebaseUser user){
+        String username = usernameFromEmail(user.getEmail());
+        writeNewUser(user.getUid(), username, user.getEmail());
+        Log.d("User ID",user.getUid());
+        Log.d("Username",username);
+        Log.d("Email",user.getEmail());
+    }
+
+    private String usernameFromEmail(String email) {
+        if (email.contains("@")) {
+            return email.split("@")[0];
+        } else {
+            return email;
+        }
+    }
+
+    private void writeNewUser(String userId, String name, String email) {
+        User user = new User(name, email);
+        mDatabase.child("users").child(userId).setValue(user);
     }
 
     private void CallClass(int intent){
