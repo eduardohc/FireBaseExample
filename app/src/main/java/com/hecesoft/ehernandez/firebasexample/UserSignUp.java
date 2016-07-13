@@ -102,7 +102,7 @@ public class UserSignUp extends AppCompatActivity {
 
     private void writeNewUser(String userId, String name, String email) {
         User user = new User(name, email);
-        mDatabase.child("users").child(userId).setValue(user);
+        mDatabase.child("users").child(userId).child("User account information").setValue(user);
     }
 
     private void CallClass(int intent){

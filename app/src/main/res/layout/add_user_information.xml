@@ -1,33 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
-        android:text="Write something you want to say to Google"
-        android:textSize="20dp"
-        android:gravity="center"/>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:inputType="textMultiLine"
-        android:hint="Type here a message"
-        android:ems="10"
-        android:id="@+id/et_message" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:text="Personal information"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
 
-    <Button
-        android:text="Save message"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:onClick="onClick"
-        android:id="@+id/btn_save_message" />
-</LinearLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:inputType="textMultiLine"
+                android:hint="Name"
+                android:ems="10"
+                android:id="@+id/et_name" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:inputType="textMultiLine"
+                android:hint="Age"
+                android:ems="10"
+                android:id="@+id/et_age" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:inputType="textMultiLine"
+                android:hint="Nacionality"
+                android:ems="10"
+                android:id="@+id/et_nacionality" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:inputType="textMultiLine"
+                android:hint="Gender"
+                android:ems="10"
+                android:id="@+id/et_gender" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:text="Write something you want to say to Google"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:inputType="textMultiLine"
+                android:hint="Type here a message"
+                android:ems="10"
+                android:id="@+id/et_message" />
+
+            <Button
+                android:text="Save information"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="onClick"
+                android:id="@+id/btn_save_information" />
+        </LinearLayout>
+    </ScrollView>
+
